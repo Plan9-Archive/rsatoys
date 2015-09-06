@@ -7,3 +7,6 @@ install:V:
 	cp verify /rc/bin/verify
 	cp encrypt /rc/bin/encrypt
 	cp decrypt /rc/bin/decrypt
+	cp encsign /rc/bin/encsign
+	cp verifdec /rc/bin/verifdec
+

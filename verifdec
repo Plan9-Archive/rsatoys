@@ -1,0 +1,19 @@
+#!/bin/rc
+
+infile = $1
+outfile = $2
+pubkey = $3
+if(~ $pubkey '')
+	pubkey=$home/privkeys/rsapub
+privkey = $4
+if(~ $privkey '')
+	privkey=$home/privkeys/rsakey
+
+checkfile = `{sha1sum $infile}
+checkkey = `{cat $infile.sig |rsaverify $pubkey |postdec}
+if (! ~ $checkfile(1) $checkkey(1)){
+	echo verification failed
+	exit
+}
+echo decrypting verified $infile
+cat $infile |rsadec $privkey |postdec >$outfile

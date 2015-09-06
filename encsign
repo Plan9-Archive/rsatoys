@@ -1,0 +1,14 @@
+#!/bin/rc
+infile=$1
+outfile=$2
+pubkey=$3
+privkey=$4
+if(~ $pubkey '')
+	pubkey=$home/privkeys/rsapub
+if(~ $privkey '')
+	privkey=$home/privkeys/rsakey
+
+cat $infile |preenc |rsaenc $pubkey >$outfile
+checkfile = `{sha1sum $outfile |preenc}
+echo $checkfile |rsasign $privkey >$outfile.sig
+echo $outfile and $outfile.sig created
