@@ -4,7 +4,7 @@ infile = $1
 outfile = $2
 pubkey = $3
 if(~ $pubkey '')
-	pubkey=$home/privkeys/rsapub
+	pubkey=$home/privkeys/rsasignpub
 privkey = $4
 if(~ $privkey '')
 	privkey=$home/privkeys/rsakey

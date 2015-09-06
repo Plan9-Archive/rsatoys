@@ -6,7 +6,7 @@ privkey=$4
 if(~ $pubkey '')
 	pubkey=$home/privkeys/rsapub
 if(~ $privkey '')
-	privkey=$home/privkeys/rsakey
+	privkey=$home/privkeys/rsasignkey
 
 cat $infile |preenc |rsaenc $pubkey >$outfile
 checkfile = `{sha1sum $outfile |preenc}

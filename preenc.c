@@ -14,7 +14,7 @@ newchunk:
 	reps=(nrand(8)*2);
 	print("02");
 	for(len=2; len<(18+reps); len++)
-		print("%d", nrand(8)+1);
+		print("%x", nrand(14)+1);
 	print("00");
 	len+=2;
 	/* convert input to human readable hex */
