@@ -1,0 +1,12 @@
+#!/bin/rc
+
+infile=$1
+outfile=$2
+pubkey=$3
+if(~ $pubkey '')
+	pubkey=$home/privkeys/rsapub
+if(! ~ $outfile ''){
+	cat $infile |preenc |rsaenc $pubkey >$outfile
+	exit
+}
+cat $infile |preenc |rsaenc $pubkey

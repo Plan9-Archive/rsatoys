@@ -1,0 +1,13 @@
+#!/bin/rc
+
+file = $1
+key = $2
+if(~ $key '')
+	key=$home/privkeys/rsapub
+
+checkfile = `{sha1sum $file}
+checkkey = `{cat $file.sig |rsaverify $key |postdec}
+if (~ $checkfile(1) $checkkey(1))
+	echo verified
+if not
+	echo verification failed

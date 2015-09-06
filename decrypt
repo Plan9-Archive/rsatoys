@@ -1,0 +1,12 @@
+#!/bin/rc
+
+infile=$1
+outfile=$2
+privkey=$3
+if(~ $privkey '')
+	privkey=$home/privkeys/rsakey
+if(! ~ $outfile ''){
+	cat $infile |rsadec $privkey |postdec >$outfile
+	exit
+}
+cat $infile |rsadec $privkey |postdec

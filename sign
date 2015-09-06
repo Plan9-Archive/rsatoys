@@ -1,0 +1,10 @@
+#!/bin/rc
+
+file = $1
+key = $2
+if(~ $key '')
+	key=$home/privkeys/rsakey
+
+checkfile = `{sha1sum $file |preenc}
+echo $checkfile |rsasign $key >$file.sig
+echo $file.sig created
