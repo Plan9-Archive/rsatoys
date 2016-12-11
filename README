@@ -1,1 +1,3 @@
 These are toy/demo implementations of RSA cryptographic encryption and signing, based on RFC 2437. DO NOT USE THESE TOOLS FOR REAL SECURITY APPLICATIONS.
+
+Any original content is placed in the public domain.
