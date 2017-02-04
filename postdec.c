@@ -12,6 +12,8 @@ main(int argc,char *argv[])
 newchunk:
 	/* read and ignore pkcs1.5 padding */
 	n=read(0,buf,2);
+	if(n==0)
+		exits(nil);
 	if(n==1)
 		read(0,buf+1,1);
 	if(strncmp(buf,"02",2)!=0){
